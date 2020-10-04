@@ -1,0 +1,142 @@
+Linux Assignment 2
+
+1.Use echo to display Hello followed by your username. (use a bash variable!)
+Ans- echo Hello $USER
+
+
+2.Create a variable answer with a value of 42.
+Ans-answer=42
+
+
+3.Copy the value of $LANG to $MyLANG.
+Ans-MyLANG=LANG
+
+
+4.List all current shell variables.
+Ans-set
+
+5.List all exported shell variables.
+Ans-env
+
+
+6.Do the env and set commands display your variable?
+Ans- set | more
+env | more
+
+
+
+
+7.Destroy your answer variable.
+Ans- unset answer
+
+
+8.Create two variables, and export one of them.
+Ans-var1=32; export var2=21
+
+
+9.Display the exported variable in an interactive child shell.
+Ans-echo $var2
+
+
+10.Create a variable, give it the value 'Dumb', create another variable with value 'do'. Use echo and the two variables to echo Dumbledore.
+Ans-varx=Dumb; vary=do
+echo ${varx}le${vary}re
+
+
+11.Find the list of backslash escaped characters in the manual of bash. Add the time to your PS1 prompt.
+Ans-PS1=’\t \u@\h \W$’
+
+
+12.Issue the command echo The answer to the meaningof life, the universe and everything is 42.
+Ans-echo The answer to the meaning of ]ife, the universe and everyEhing is 42
+
+
+13.Repeat the previous command using only two characters (there are two solutions!)
+Ans-!! Or !e
+
+
+14.Display the last 5 commands you typed.
+Ans-history 5
+
+
+15.Issue the long echo from question 1 again, using the line numbers you received from the command in question 3.
+Ans-!186
+
+
+16.How many commands can be kept in memory for your current shell session ?
+Ans-echo $HISTSIZE
+
+
+17.Is the current session history stored to ~/.bashrc_history?
+Ans-yes
+
+18.Where are these commands stored when exiting the shell ?
+Ans-echo $HISTFILE
+
+
+19.How many commands can be written to the history file when exiting your current shell session ?
+Ans-echo $HISTFILESIZE
+
+
+20.Make sure your current bash shell remembers the only 10 commands you type.
+Ans- HISTSIZE=10
+
+21.When is command history written to the history file ?
+Ans- After logging off from the present shell.
+
+22.Put a sorted list of all bash users in bashusers.txt.
+Ans- grep bash /etc/passwd | cut -d: -f1 | sort > bashusers.txt
+
+23.Put a sorted list of all logged on users in onlineusers.txt.
+Ans- who | cut -d' ' -f1 | sort > onlineusers.txt
+
+
+24.Make a list of all filenames in /etc that contain the string conf in their filename.
+Ans- ls /etc | grep conf
+
+
+25.Make a sorted list of all files in /etc that contain the case insensitive string conf in their filename.
+Ans- ls /etc | grep -i conf | sort
+
+
+26.Look at the output of /sbin/ifconfig. Write a line that displays only ip address and the subnet mask.
+Ans- /sbin/ifconfig | head -2 | grep 'inet ' | tr -s ' ' | cut -d' ' -f3,5
+
+27.Write a line that removes all non-letters from a stream.
+Ans- sin@sin-OptiPlex-7060:~$ cat text
+This is, yes really! , a text with ?&* too many str$ange# characters ;-)
+sin@sin-OptiPlex-7060:~$ cat text | tr -d ',!$?.*&^%#@;()-'
+This is yes really  a text with  too many strange characters
+
+28.Write a line that receives a text file, and outputs all words on a separate line.
+Ans- sin@sin-OptiPlex-7060:~$ nano text2.txt
+sai@sai-OptiPlex-7060:~$ cat text2.txt | tr " " "\n"
+it
+is
+very
+hot
+outside.
+
+
+
+29.Write a spell checker on the command line.
+Ans- sin@sin-OptiPlex-7060:~$ echo "The sun is shining today" > text
+sin@sin-OptiPlex-7060: ~$ cat > DICT
+is
+shining
+sun
+the
+today
+sin@sin-OptiPlex-7060:~$ cat text | tr 'A-Z ' 'a-z\n' | sort | uniq | comm -23 - DICT
+sun
+
+30.Create a directory that belongs to a group, where every member of that group can read and write to files, and create files. Make sure that people can only delete their own files.
+Ans--
+$mkdir groups
+-add groupadd to our directory
+$groupadd groups
+- give permissions to read, write files and create
+files.
+$ chmod 1760 groups
+
+

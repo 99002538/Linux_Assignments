@@ -1,0 +1,34 @@
+Practice8: shell history
+1. Issue the command
+echo The answer to the meaning of life, the universe and everything is 42.
+2. Repeat the previous command using only two characters (there are two solutions!)
+!!
+OR
+!e
+3. Display the last 5 commands you typed.
+bindukr:~$ history 5
+32 ls -l
+33 ls
+34 df -h | grep sda
+35 echo The answer to the meaning of life, the universe and everything is 42
+36 history 5
+4. Issue the long echo from question 1 again, using the line numbers you received from the
+command in question 3.
+bindukr:~$ !55
+echo The answer to the meaning of life, the universe and everything is 42
+The answer to the meaning of life, the universe and everything is 42
+5. How many commands can be kept in memory for your current shell session ?
+echo $HISTSIZE
+6. Is the current session history stored to ~/.bashrc_history?
+echo $HISTFILE
+7. Where are these commands stored when exiting the shell ?
+echo $HISTFILESIZE
+8. How many commands can be written to the history file when exiting your current shell session ?
+HISTSIZE=5000
+9. Make sure your current bash shell remembers the only 10 commands you type.
+HISTSIZE=10
+10. When is command history written to the history file ?
+Adding dates and times to the history file
+By default, the history file remembers only the commands themselves, not the dates/times
+when they were entered. And nothing you can do will provide information on when the
+commands were used in the past.

@@ -1,0 +1,32 @@
+1) *.txt shows all files of type .txt in the same directory.
+
+"*.txt" also includes all subdirectories.
+
+2) first statement writes contents of all .odf files in directory and subdirectories to data_odf.txt
+
+second statement only writes contents of .odf files in that directory.
+
+it will work for 200 .odf files, but not for 2 million as character limit will be exceeded.
+
+3) find . -type f -newerat "20100130 23:59:59"
+
+4) touch -t 200908312359 marker_start
+touch -t 200910010000 marker_end
+find . -type f -name "*.odf" -newer marker_start ! -newer marker_end
+
+5) find /etc -type f -name '*.conf' | wc -l
+
+6) find /data -name "*.odf" -exec cp {} /backup/ \;
+
+The first might fail when there are too many files to fit on one command line.
+
+7) You cannot locate this with locate because it is not yet in the index.
+updatedb must be used.
+
+8)
+
+ find . -name '*.htm' -exec mv {} {}l \;
+
+9) date +%Y/%m/%d
+
+10) cal 1582
